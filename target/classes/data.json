@@ -1,0 +1,31 @@
+[
+  {
+    "tradeTime":"2016-10-26 08:33:12",
+    "officialAccountId":"wx9209fd8ba85ff604",
+    "businessId":"1289613701",
+    "subBusinessid":"0",
+    "deviceId":"",
+    "businessOrderid":"4000002001201610267737210409",
+    "wechatOrderid":"93256557631906016",
+    "userId":"oNZB5uCmEUlD68n70xsYbxE3gBkk",
+    "tradeType":"APP",
+    "tradeStatus":"SUCCESS",
+    "payBank":"CMB_DEBIT",
+    "currency":"CNY",
+    "totalCost":"10.00",
+    "redPackets":"0.00",
+    "wechatRefundsOrderId":"0",
+    "busRefundsOrderId":"0",
+    "refund":"0.00",
+    "redPacketsRefund":"0.00",
+    "refundType":"",
+    "refundStatus":"",
+    "itemName":"到家平台-汽车-呱呱",
+    "busDataPacket":"",
+    "fee":"0.06000",
+    "feePercent":"0.60%"
+  },
+  {
+    "tradeTime":"2016-10-26 08:33:12"
+  }
+]

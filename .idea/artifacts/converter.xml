@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact name="converter">
+    <output-path>$PROJECT_DIR$/out/artifacts/converter</output-path>
+    <root id="root">
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.8" />
+        <element id="library" level="project" name="Maven: commons-io:commons-io:1.3.2" />
+        <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+        <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
+      </element>
+      <element id="directory" name="conf">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/setup.xml" />
+      </element>
+      <element id="directory" name="bin">
+        <element id="archive" name="converter.jar">
+          <element id="module-output" name="converter" />
+        </element>
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/startup.sh" />
+      </element>
+      <element id="directory" name="data">
+        <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/README" />
+      </element>
+    </root>
+  </artifact>
+</component>

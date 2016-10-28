@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<converter>
+    <property>
+        <key>separator</key>
+        <value>,</value>
+    </property>
+    <property>
+        <key>mask</key>
+        <value></value>
+    </property>
+    <property>
+        <key>output</key>
+        <value>/opt/dst/output.json</value>
+    </property>
+    <property>
+        <key>keys</key>
+        <props>
+
+        </props>
+    </property>
+</converter>
