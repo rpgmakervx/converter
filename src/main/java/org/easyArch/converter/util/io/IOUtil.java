@@ -9,9 +9,7 @@ import org.easyArch.converter.util.codec.EncryptUtil;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
+import java.nio.channels.*;
 import java.nio.charset.Charset;
 
 /**
@@ -59,6 +57,14 @@ public class IOUtil {
             if (reader != null) {
                 reader.close();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closeChl(Channel ch){
+        try {
+            ch.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -186,6 +192,42 @@ public class IOUtil {
         String hashStr1 = EncryptUtil.sha1(getBytes(toCharArray(reader1)));
         String hashStr2 = EncryptUtil.sha1(getBytes(toCharArray(reader2)));
         return hashStr1.equals(hashStr2);
+    }
+
+    public static long transferTo(FileInputStream from,OutputStream to){
+        FileChannel fChannel = from.getChannel();
+        WritableByteChannel tChannel = Channels.newChannel(to);
+        return transferTo(fChannel,tChannel);
+    }
+
+    public static long transferTo(FileChannel from,WritableByteChannel to){
+        long count = 0;
+        try {
+            count = from.transferTo(0, from.size(), to);
+        } catch (IOException e) {
+            e.printStackTrace();
+            count = -1;
+        }finally {
+            closeChl(from);
+            closeChl(to);
+        }
+        return count;
+    }
+    public static long transferFrom(InputStream from,FileInputStream to){
+        return 0;
+    }
+    public static long transferFrom(ReadableByteChannel from,FileChannel to,long length){
+        long count = 0;
+        try {
+            count = to.transferFrom(to,0,length);
+        } catch (IOException e) {
+            e.printStackTrace();
+            count = -1;
+        }finally {
+            closeChl(from);
+            closeChl(to);
+        }
+        return count;
     }
 
 }

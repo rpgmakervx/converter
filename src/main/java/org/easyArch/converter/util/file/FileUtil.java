@@ -5,6 +5,7 @@ package org.easyArch.converter.util.file;/**
  */
 
 import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
+import org.easyArch.converter.util.io.IOUtil;
 
 import java.io.*;
 import java.nio.channels.Channels;
@@ -68,13 +69,10 @@ public class FileUtil {
         if (!file.exists()) {
             throw new FileNotFoundException("文件" + path + "不存在");
         }
-        BufferedReader br = new BufferedReader(new FileReader(file));
-        StringBuffer buffer = new StringBuffer();
-        String line = "";
-        while ((line = br.readLine()) != null) {
-            buffer.append(line + "\n");
-        }
-        return buffer.toString();
+        InputStream is = new FileInputStream(file);
+        String result = IOUtil.toString(is);
+        IOUtil.closeIO(is);
+        return result;
     }
 
     public static void cp(String srcPath, String dstPath) throws Exception {
@@ -95,10 +93,11 @@ public class FileUtil {
         FileChannel srcChannel = sis.getChannel();
         FileChannel dstChannel = dos.getChannel();
         srcChannel.transferTo(0, srcChannel.size(), dstChannel);
+
         srcChannel.close();
         dstChannel.close();
-        sis.close();
-        dos.close();
+        IOUtil.closeIO(sis);
+        IOUtil.closeIO(dos);
     }
 
     public static void mv(String srcPath, String dstPath) throws Exception{
