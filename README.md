@@ -17,7 +17,7 @@ converter支持容器方式运行和可编程api使用。
 **2.api调用**
 
 * 新建工程，将converter.jar导入工程。新建一个类，输入如下代码：
-
+jar在/out/artifacts/converter/bin下
 ```java
 public static void main(String[] args) throws Exception {
     Configuration.getCnf().setString("separator",",");
